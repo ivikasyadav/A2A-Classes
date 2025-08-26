@@ -24,7 +24,7 @@ app.get('/',async(req,res)=>{
    res.status(200).send('API is Running')
 })
 
-
+// huvhfeuvbrgubvevbre
 app.use('/api/auth',authRoutes)
 app.use('/api/batch',batchRoutes)
 app.use('/api/teacher',teacherRoutes)
