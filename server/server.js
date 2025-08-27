@@ -14,11 +14,12 @@ const app=express()
 
 app.use(cors({
     origin: [
-        "http://localhost:5173", // local frontend
-        "https://a2a-classes-1.onrender.com" // deployed frontend
+        "http://localhost:5173",                     // local dev
+        "https://a2a-classes-12.onrender.com"        // deployed frontend on Render
     ],
     credentials: true
 }));
+
 
 app.use(express.json());
 dotenv.config()
