@@ -13,9 +13,10 @@ import StudentRegister from './auth/StudentRegister '
 function App() {
   const [count, setCount] = useState(0)
 
+  console.log("Backend URL:", import.meta.env.VITE_API_URI);
   return (
     <>
-   
+
       <Routes>
         <Route path='/admin-login' element={<AdminLogin/>}/>
         <Route path='/' element={<StudentLogin/>}/>
