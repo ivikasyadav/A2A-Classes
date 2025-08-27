@@ -13,9 +13,13 @@ const attendenceRoute=require('./routes/attendanceRoutes')
 const app=express()
 
 app.use(cors({
-    origin: "http://localhost:5173", // frontend URL
-    credentials: true               // allow cookies (if needed)
+    origin: [
+        "http://localhost:5173", // local frontend
+        "https://a2a-classes-1.onrender.com" // deployed frontend
+    ],
+    credentials: true
 }));
+
 app.use(express.json());
 dotenv.config()
 connectDB()

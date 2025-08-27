@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import AdminLogin from './auth/AdminLogin'
@@ -13,7 +13,10 @@ import StudentRegister from './auth/StudentRegister '
 function App() {
   const [count, setCount] = useState(0)
 
-  console.log("Backend URL:", import.meta.env.VITE_API_URI);
+  useEffect(()=>{
+
+    console.log("Backend URL:", import.meta.env.VITE_API_URI);
+  },[])
   return (
     <>
 
