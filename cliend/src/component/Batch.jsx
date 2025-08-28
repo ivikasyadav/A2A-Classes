@@ -35,6 +35,18 @@ const Batch = () => {
         }
     };
 
+    const handleDeleteBatch = async (batchId) => {
+        const confirmDelete = confirm("Are you sure you want to delete this batch?");
+        if (!confirmDelete) return;
+
+        try {
+            await axios.delete(`${API}/api/batch/deleteBatch/${batchId}`);
+            fetchBatchData();
+        } catch (error) {
+            console.error("Error deleting batch:", error);
+        }
+    };
+
     const openModal = (batch) => {
         setSelectedBatch(batch);
         setShowPendingStudents(false);
@@ -103,8 +115,16 @@ const Batch = () => {
                 {batchData.map((batch) => (
                     <div
                         key={batch._id}
-                        className="bg-white p-4 rounded-lg shadow hover:shadow-lg transition cursor-pointer flex flex-col justify-between"
+                        className="relative bg-white p-4 rounded-lg shadow hover:shadow-lg transition cursor-pointer flex flex-col justify-between"
                     >
+                        <button
+                            onClick={() => handleDeleteBatch(batch._id)}
+                            className="absolute top-2 right-2 text-red-500 hover:text-red-700 text-xl font-bold"
+                            title="Delete Batch"
+                        >
+                            &times;
+                        </button>
+
                         <div>
                             <p className="font-semibold text-gray-800 text-lg">{batch.name}</p>
                             <p className="text-gray-600 mt-1">Price: ₹{batch.price}</p>
@@ -181,7 +201,7 @@ const Batch = () => {
             {/* Add Batch Modal */}
             {addBatch && (
                 <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-black/30 z-50 p-4">
-                    <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+                    <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md relative">
                         <button
                             onClick={() => setAddBatch(false)}
                             className="absolute top-2 right-2 text-red-500 text-2xl font-bold"
