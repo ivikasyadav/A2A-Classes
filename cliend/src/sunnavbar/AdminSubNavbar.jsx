@@ -1,6 +1,7 @@
 // src/components/Navbar.jsx
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import logo1 from '../assets/logo1.jpg';
 
 const AdminSubNavbar = () => {
     const { authData, logout } = useAuth();
@@ -32,7 +33,7 @@ const AdminSubNavbar = () => {
             <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
                 <div className="text-2xl font-bold">
                     <NavLink to="/" className="hover:text-gray-200">
-                        Class Manager
+                        <img src={logo1} alt="" className='h-12'/>
                     </NavLink>
                 </div>
 
