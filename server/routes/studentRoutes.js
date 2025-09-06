@@ -1,6 +1,6 @@
 const express=require('express')
 const router=express.Router()
-const { allStudent, pendingStudent, approvedStudent, updateStatus, applytoBatch, deleteBatch, updateBatchStatus }=require('../controller/studentController')
+const { allStudent, pendingStudent, approvedStudent, updateStatus, applytoBatch, deleteBatch, updateBatchStatus, deleteStudent }=require('../controller/studentController')
 
 
 router.get('/allstudent',allStudent)
@@ -10,6 +10,8 @@ router.put('/update-status/:id', updateStatus)
 router.put('/apply-batch/:id', applytoBatch)
 router.put('/remove-batch/:id', deleteBatch)
 router.put('/update-batch/:id', updateBatchStatus)
+router.delete('/delete-student/:id', deleteStudent)
+
 
 
 module.exports=router
