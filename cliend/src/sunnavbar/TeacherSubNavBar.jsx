@@ -32,7 +32,10 @@ const TeacherSubNavBar = () => {
             <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
                 <div className="text-2xl font-bold">
                     <NavLink to="/" className="hover:text-gray-200">
-                       <img src={logo1} alt="" className='h-12'/>
+                      <div className='flex items-center justify-center gap-5'>
+                                                <img src={logo1} alt="" className='h-12' />
+                                                <p className='font-bold tracking-widest'> A2A Classes</p>
+                                           </div>
                     </NavLink>
                 </div>
 
